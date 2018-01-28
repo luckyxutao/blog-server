@@ -12,10 +12,15 @@ router.get('/addUser', function (req, res, next) {
 
 router.get('/queryAll', function (req, res, next) {
   userDao.queryAll().then(userlist=>{
-    res.render('userlist',{
-      userlist
-    })
+    res.json(userlist);
+    // res.render('userlist',{
+    //   userlist
+    // })
   })
 });
 
+/* GET users listing. */
+router.get('/hybrid*', function (req, res, next) {
+  res.render("hy");
+});
 module.exports = router;
