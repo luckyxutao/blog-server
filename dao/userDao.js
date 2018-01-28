@@ -21,11 +21,13 @@ var jsonWrite = function (res, ret) {
 };
 
 module.exports = {
-    queryAll: function (req, res, next) {
-        pool.getConnection(function (err, connection) {
-            connection.query($sql.queryAll, function (err, result) {
-                jsonWrite(res, result);
-                connection.release();
+    queryAll: function () {
+        return new Promise((resolve,reject)=>{
+            pool.getConnection(function (err, connection) {
+                connection.query($sql.queryAll, function (err, result) {
+                    resolve(result);
+                    connection.release();
+                });
             });
         });
     },

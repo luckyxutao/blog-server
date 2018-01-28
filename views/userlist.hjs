@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>所有用户</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    {{#userlist}}
+    <p>We{{id}}lcome{{age}} to {{ name }}</p>
+    {{/userlist}}
+  </body>
+</html>

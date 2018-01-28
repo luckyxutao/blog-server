@@ -11,7 +11,11 @@ router.get('/addUser', function (req, res, next) {
 });
 
 router.get('/queryAll', function (req, res, next) {
-  userDao.queryAll(req, res, next);
+  userDao.queryAll().then(userlist=>{
+    res.render('userlist',{
+      userlist
+    })
+  })
 });
 
 module.exports = router;
